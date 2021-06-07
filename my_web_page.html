@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scale=no">
+    <title>취미 웹사이트</title>
+    <style>
+        *{margin: 0; padding: 0; font-family: Verdana, Geneva, Tahoma, sans-serif;}
+        #body{  margin: 0 auto; background-color:gray;}
+        li{list-style: none;}
+        a { text-decoration:none; color: black;}
+
+        #header{
+            background:black; padding: 10px 20px;
+            height: 250px;
+            color: rgb(255, 208, 0);
+        }
+        #top{
+            margin-top: 80px;
+        }
+        #middle{
+            width: 1500px;
+            overflow: hidden;
+        }
+        #left{
+            float: left;
+            width: 350px;
+            height: auto;
+        }
+        #right{
+            float: right;
+            width: 1150px;
+        }
+
+        @media(max-width:767px){
+            #middle{width: auto;}
+            #left{display: none;}
+            #right{width: auto; float: none;}
+        }
+        
+        div#left{
+            height: 35px;
+            line-height: 35px;
+            cursor:pointer;
+            text-align: center;
+        }
+        
+        div.title{
+            background:#00008b;
+            margin-bottom: 2px;
+        }
+        .title{
+            color: white;
+        }
+
+        ul#navi{
+            margin-bottom: 5px;
+        }
+        ul.sub li {
+            margin-bottom: 2px;
+            line-height:35px;
+            background:#f4f4f4;
+            cursor:pointer;
+            text-align: center;
+        }
+
+        ul.sub li a {
+            display: block;
+            width: 100%;
+            height:100%;
+            color:#000;
+        }
+
+        ul.sub li:hover {
+            background:#4B89DC;
+        }
+
+        div#pict{
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        img#picture1{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        p#story1{
+            border: 1px solid gray;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: blanchedalmond;
+        }
+
+        div#drama{
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        p#story{
+            float: left;
+            text-align: center;
+            border: 1px solid gray;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color: pink;
+        }
+        
+        div#drama1{
+            overflow: hidden;
+        }
+
+        div#drama2{
+            overflow: hidden;
+        }
+
+        div#drama3{
+            overflow: hidden;
+        }
+
+        div#drama4{
+            overflow: hidden;
+        }
+
+        div#con{
+            float: left;
+            object-fit: cover;
+        }
+
+        iframe{
+            float: right;
+            margin-right: 20px;
+            margin-left: 15px;
+        }
+
+        div#trip{
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        div#trip1{
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+            overflow: hidden;
+        }
+        
+        div#imgg1{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        div#trip2{
+            margin-top: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+            overflow: hidden;
+        }
+
+        div#imgg2{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h4{
+            text-align: center;
+            border: 1px solid gray;
+            margin-top: 5px;
+            background-color: yellow;
+        }
+        
+        div#sidebox { 
+            position:fixed;
+            top: 650px;
+            float: right;
+            margin-right: 200px;
+        }
+    </style>
+
+
+    <script>
+
+        function goTop(){
+	        document.documentElement.scrollTop = 0;
+        }
+
+        var floatPosition = parseInt($("#sidebox").css('top'))
+        // scroll 인식
+        $(window).scroll(function() {
+  
+        // 현재 스크롤 위치
+        var currentTop = $(window).scrollTop();
+        var bannerTop = currentTop + floatPosition + "px";
+
+        //이동 애니메이션
+        $("#sidebox").stop().animate({
+        "top" : bannerTop
+        }, 500);
+        }).scroll();
+
+        $(window).resize(function() {
+        resizeYoutube();
+        });
+</script>
+<script>
+        window.onload = function(){
+            var name = document.querySelectorAll('h3');
+
+            for(var i=0; i<name.length; i++){
+                var names = name[i];
+                names.style.color = 'black';
+                names.style.background = 'blue';
+            }
+        }
+</script>
+<script>
+    function change(){
+        var p = document.getElementById("nameP");
+        p.innerHTML = "이곳은 북촌입니다.! <img src='http://myweb.kyonggi.ac.kr/users/201813112/main/내사진.jpg'>";
+        
+    }
+</script>
+
+<script type="text/javascript">
+    $(window).resize(function(){resizeYoutube();});
+    $(function(){resizeYoutube();});
+    function resizeYoutube(){ $("iframe").each(function(){ 
+        if( /^https?:\/\/www.youtube.com\/embed\//g.test($(this).attr("src")) ){ 
+            $(this).css("width","100%"); 
+            $(this).css("height",Math.ceil( parseInt($(this).css("width")) * 480 / 854 ) + "px")
+            ;} 
+        }); 
+    }
+</script>
+
+</head>  
+<body>
+    <!-- Header -->
+    <div id="header">
+        <div id="top">
+            <h1 class="master-title">MY WEB PAGE</h1>
+            <h2 class="master-description">Jin Home Page!</h2>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div id="main">
+        <!-- middle -->
+        <div id="middle">
+            <!-- left -->
+            <div id="left">
+                <div id="navileft">
+                    <ul id="navi">
+                        <li class="group">
+                            <div class="title"><b id="titlese">자기소개</b></div>
+                        </li>
+                        <li class="group">
+                            <div class="title"><b>드라마</b></div>
+                            <ul class="sub">
+                                <a href="#drama1"><li>미생</li></a>
+                                <a href="#drama2"><li>킹덤</li></a>
+                                <a href="#drama3"><li>정도전</li></a>
+                                <a href="#drama4"><li>스토브리그</li></a>            
+                            </ul>            
+                        </li>
+                        <li class="group">
+                            <div class="title"><b>여행</b></div> 
+                            <ul class="sub">
+                                <a href="#trip1"><li>경복궁</li></a>
+                                <a href="#trip2"><li>북촌</li></a>
+                            </ul>            
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+           <div id="sidebox">
+               <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/up-arrow.png" width="50px" height="50px" onclick="goTop()">
+               Top
+            </div>
+            <!-- right -->
+                <div id="right">
+                    <div id="selfstory">
+                        <div id="pict">
+                            <h1 id="self">자기소개</h1>
+                            <p id="nameP" style="color:blue" onclick="change()">여기를 누르면 <span style="color:red">제가 나옵니다!!</span></p>
+                            <p id="story1">
+                                안녕하세요 김어진입니다. 현재 경기대학교 4학년으로 재학하고 있습니다. 
+                                좋아하는 언어로는 자바와 스프링입니다. 이번 학기가 끝나면 스프링을 사용해서 웹사이트를 개발을 생각하고 있습니다.
+                                지금 가장 관심있는 것은 창업으로 스타트업 공모전을 진행하고 있습니다! 이번 과제는 나만의 웹페이지를 만드는 주제이니만큼 
+                                제가 가장 좋아하는 것으로 과제를 진행하려고 합니다. 저는 쉬는 시간에는 드라마를 보거나 혼자 서울 이곳저곳을 다니는 것을 좋아합니다! 
+                                아래에는 게시된 것들은 제가 최근에 본 드라마를 소개하고 제가 여행갔던 곳의 풍경을 찍은 사진입니다.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div id="drama">
+                        <h1>드라마</h1>
+                        <div id="drama1">
+                            <div id="con">
+                                <h3 id="dramaname">미생</h3> 
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/미생.jpg" width="500" height="315" style="max-width:100%;height:auto;" >
+                                <iframe width="550" height="315" src="https://www.youtube.com/embed/uLVIUmEU8Ck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p id="story">
+                                이 드라마는 신입사원 장그래의 이야기입니다.  
+                                26년동안 바둑프로기사를 꿈꾸었으나 이루지 못한 채 아르바이트를 하며 지내던 중, 지인의 인맥 덕분에 대기업 인턴에서 시작하여 계약직 사원으로 들어간 장그래
+                                이러한 과정을 보면서 인턴의 기회를 장그래에게 주는 것이 과연 평등한 것인지, 불평등한 것인지를 고민해보았고 저도 회사에 들어가면 
+                                장그래와 같은 신입사원이 될 것이니 드라마에 많은 이입이 되는 것 같습니다. 
+                            </p>
+                        </div>
+                       
+                        <div id="drama2">
+                            <h3 id="dramaname">킹덤</h3>
+                            <div id="con">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/kingdom.jpg" width="500" height="315" style="max-width:100%;height:auto;">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/x-YJTJsVQ_0?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p id="story">
+                                k좀비의 돌풍을 일으킨 넷플릭스의 드라마입니다. 주지훈을 필두로 많은 연기파 배우들이 참여했습니다. 
+                                류승룡, 김성규, 전석호등의 배우들이 참여했습니다. 시즌1은 좀비의 등장과 좀비를 만든 자들의 흑막을
+                                주로 다루었고 시즌2부터 좀비가 되는 원인을 알아내고 좀비를 만든 자들의 흑막을 파헤쳤습니다.
+                                이 드라마는 주로 피를 소재로 다루는데 조선시대에는 가문, 즉 어떤 혈통을 물려받았는지가 가장 중요한데
+                                좀비앞에서는 혈통도 가문도 중요하지 않다는 것을 계속해서 이야기합니다. 피를 소재로 이러한 메세지를
+                                던지는 것이 드라마를 한층 더 재미있게 하는 것 같습니다.
+                            </p>
+                        </div>
+            
+                        <div id="drama3">
+                            <h3 id="dramaname">정도전</h3>
+                            <div id="con">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/정도전.jpg" width="500" height="315" style="max-width:100%;height:auto;">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/Tu7xNupKZAs?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            <p id="story">
+                            </div>
+                            <p id="story">   
+                                제가 가장 좋아하는 드라마입니다. 조선의 개국과정을 드라마로 각색했고 연기파 배우들이 많이 참여했습니다.
+                                이 드라마는 정도전이 어떻게 고려를 무너뜨리고 조선의 개국을 결심한 것과 수십년을 함께한 막역지우인 정몽주와의 대립,
+                                자신이 아닌 이성계를 왕으로 추대한 정도전의 사상을 주로 다룹니다. 특히 정도전과 이인임의 정치적 싸움이 드라마를 
+                                가장 재미있게 만들고 세종대왕의 아버지였던 이방원 등장합니다.
+                            </p>
+                        </div>
+            
+                        <div id="drama4">
+                            <h3 id="dramaname">스토브리그</h3>
+                            <div id="con">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/스토브리그.jpg" width="500" height="315" style="max-width:100%;height:auto;">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/jiY3pQYnADk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+                            </div>
+                           <p id="story">
+                                이 드라마 덕분에 남궁민은 연예대상을 받았습니다. 그만큼 드라마의 완성도가 높았고 극의 몰입을 방해하는 러브라인이 없었습니다.
+                                4년 연속 꼴찌팀인 드림즈를 남궁민이 단장의 역할로 1위 팀으로 만들기 위해 고군분투하는 과정을 담은 드라마입니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div id="trip">
+                        <div id="trip1">
+                            <h4>경복궁</h4>
+                            <div id="imgg1">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/경복궁.jpg" width="360" height="315" >
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/경복궁1.jpg" width="360" height="315">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/경복궁2.jpg" width="360" height="317">    
+                            </div>
+                         </div>
+                
+                        <div id="trip2">
+                            <h4>북촌한옥마을</h4>
+                            <div id="imgg2">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/북촌.jpg" width="360" height="315">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/북촌1.jpg" width="360" height="315">
+                                <img src="http://myweb.kyonggi.ac.kr/users/201813112/main/북촌2.jpg" width="360" height="315">    
+                            </div>
+                            </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
